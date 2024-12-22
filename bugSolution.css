@@ -1,0 +1,21 @@
+/* bugSolution.css */
+
+.focus-target {
+  outline: none;
+}
+
+.focus-target:focus {
+  box-shadow: 0 0 0 2px blue;
+}
+
+/* JavaScript fallback */
+const focusTarget = document.querySelector('.focus-target');
+if(focusTarget){
+  focusTarget.addEventListener('focus', function(event) {
+    if(document.activeElement === this && this.matches(':focus-visible')){
+      this.classList.add('focused');
+    } else {
+      this.classList.remove('focused');
+    }
+  });
+}
